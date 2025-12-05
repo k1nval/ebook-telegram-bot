@@ -14,7 +14,7 @@ services:
     expose:
       - "3001"
     networks:
-      - web_proxy
+      - proxy
 
   webapp:
     build:
@@ -25,8 +25,8 @@ services:
     expose:
       - "80"
     networks:
-      - web_proxy
+      - proxy
 
 networks:
-  web_proxy:
+  proxy:
     external: true
