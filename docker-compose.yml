@@ -4,12 +4,8 @@ services:
   bot:
     build: .
     container_name: ebook-bot
-    volumes:
-      - .:/app
-      - /app/node_modules
     env_file:
       - .env
-    command: npm start
     restart: unless-stopped
     expose:
       - "3001"

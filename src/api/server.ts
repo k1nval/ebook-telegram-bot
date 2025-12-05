@@ -117,7 +117,7 @@ export class ApiServer {
     }
 
     public start() {
-        this.app.listen(this.port, () => {
+        this.app.listen(this.port, '0.0.0.0', () => {
             logger.info(`API Server running on port ${this.port}`);
         });
     }
