@@ -23,15 +23,15 @@ const hasFormats = computed(() => props.book.formats && props.book.formats.lengt
 <template>
   <div class="h-full flex flex-col bg-[#1a1a1a]">
     <!-- Header / Nav -->
-    <div class="p-4 flex items-center border-b border-gray-800">
+    <div class="p-4 flex items-center border-b border-gray-800 relative">
       <button 
         @click="emit('back')" 
-        class="flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+        class="flex items-center text-blue-400 hover:text-blue-300 transition-colors z-10"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         <span class="ml-1 font-medium">Back</span>
       </button>
-      <h2 class="ml-4 font-semibold text-white truncate flex-1 text-center pr-8">Details</h2>
+      <h2 class="absolute inset-x-0 text-center font-semibold text-white">Details</h2>
     </div>
 
     <div class="flex-1 overflow-y-auto p-6 scrollbar-hide">

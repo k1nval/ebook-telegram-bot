@@ -13,6 +13,7 @@ const error = ref('');
 const selectedBook = ref<any>(null);
 const currentView = ref<'list' | 'details'>('list');
 const slideDirection = ref<'slide-left' | 'slide-right'>('slide-left');
+const searchQuery = ref('');
 
 // In dev, use localhost:3001. In prod, use relative path /api
 const API_URL = import.meta.env.DEV ? 'http://localhost:3001/api' : '/api';
@@ -108,7 +109,7 @@ const handleDownload = async (format: string) => {
                 Ebook Library
             </h1>
             
-            <SearchInput @search="handleSearch" />
+            <SearchInput v-model="searchQuery" @search="handleSearch" />
             </div>
 
             <!-- Loading State -->

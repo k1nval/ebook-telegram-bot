@@ -1,11 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed } from 'vue';
+
+const props = defineProps<{
+  modelValue?: string
+}>();
 
 const emit = defineEmits<{
   (e: 'search', query: string): void
+  (e: 'update:modelValue', value: string): void
 }>();
 
-const query = ref('');
+const query = computed({
+  get: () => props.modelValue ?? '',
+  set: (value: string) => emit('update:modelValue', value)
+});
 
 const handleSearch = () => {
     if (query.value.trim()) {

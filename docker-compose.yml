@@ -3,6 +3,7 @@ version: '3.8'
 services:
   bot:
     build: .
+    container_name: ebook-bot
     volumes:
       - .:/app
       - /app/node_modules
@@ -10,6 +11,8 @@ services:
       - .env
     command: npm start
     restart: unless-stopped
+    expose:
+      - "3001"
     networks:
       - web_proxy
 
@@ -17,7 +20,10 @@ services:
     build:
       context: src/webapp
       dockerfile: Dockerfile
+    container_name: ebook-webapp
     restart: unless-stopped
+    expose:
+      - "80"
     networks:
       - web_proxy
 

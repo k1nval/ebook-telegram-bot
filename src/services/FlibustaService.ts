@@ -47,6 +47,14 @@ export class FlibustaService implements BookLookupService {
                         else if (type.includes('mobi')) formatType = 'mobi';
                         else if (type.includes('pdf')) formatType = 'pdf';
 
+                        // Fallback: extract format from URL path (e.g., /b/847493/html -> html)
+                        if (formatType === 'unknown' && href) {
+                            const urlFormat = href.split('/').pop()?.toLowerCase();
+                            if (urlFormat && ['fb2', 'epub', 'mobi', 'pdf', 'txt', 'html', 'rtf', 'djvu', 'doc', 'azw3'].includes(urlFormat)) {
+                                formatType = urlFormat;
+                            }
+                        }
+
                         formats.push({
                             type: formatType,
                             downloadUrl: this.resolveUrl(href),
