@@ -16,9 +16,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
     "adm-zip": "^0.5.10",
     "axios": "^1.6.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "express": "^5.2.1",
     "firebase-admin": "^11.11.0",
     "resend": "^2.0.0",
     "telegraf": "^4.15.0",

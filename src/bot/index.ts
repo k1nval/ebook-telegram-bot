@@ -6,6 +6,7 @@ import { EmailService } from '../services/EmailService';
 import { emailScene, MyContext, MyWizardSession, MySession } from './scenes';
 import axios from 'axios';
 import { logger } from '../utils/logger';
+import { ApiServer } from '../api/server';
 
 dotenv.config();
 
@@ -349,6 +350,10 @@ bot.action(/mail_([a-f0-9]+)_(.+)/i, async (ctx) => {
         });
     }
 });
+
+// Start API Server
+const apiServer = new ApiServer(flibustaService, persistenceService, bot);
+apiServer.start();
 
 bot.launch().then(() => {
     logger.info('Bot started');
